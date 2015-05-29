@@ -1,0 +1,15 @@
+<template>
+
+	<require from="./converters/toupper" ></require>
+
+	<section>
+		<div repeat.for="post of posts" class="post-wrapper">
+			<article>
+				<header><h2><a href="#/post/${post.id}">${post.title | toUpper}</a></h2></header>
+				<div class="post-content">
+				${post.content}
+				</div>
+			</article>
+		</div>
+	</section>
+</template>
