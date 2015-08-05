@@ -1,1 +1,0 @@
-module.exports = require("npm:linq@3.0.4-beta/linq");

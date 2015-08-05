@@ -1,94 +1,118 @@
-# aurelia-skeleton-navigation
+<a href="https://github.com/TryGhost/Ghost"><img src="https://cloud.githubusercontent.com/assets/120485/6622822/c4c639fe-c8e7-11e4-9e64-5bec06c8b4c3.png" alt="Ghost" /></a>
+<a href="https://travis-ci.org/TryGhost/Ghost"><img align="right" src="https://travis-ci.org/TryGhost/Ghost.svg?branch=master" alt="Build status" /></a>
 
-[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
-[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+![Ghost Screenshot](https://cloud.githubusercontent.com/assets/120485/6626466/6dae46b2-c8ff-11e4-8c7c-8dd63b215f7b.jpg)
 
-This skeleton is part of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to build your ES6 code with the Babel compiler. Karma/Protractor/Jasmine testing is also configured.
+![Ghost is a simple, powerful publishing platform that allows you to share your stories with the world.](https://cloud.githubusercontent.com/assets/120485/6626501/b2bb072c-c8ff-11e4-8e1a-2e78e68fd5c3.png)
 
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
+The project is maintained by a non-profit organisation called the **Ghost Foundation**, along with an amazing group of independent [contributors](https://github.com/TryGhost/Ghost/contributors). We're trying to make publishing software that changes the shape of online journalism.
 
-## Running The App
+- [Ghost.org](https://ghost.org)
+- [Latest Release](https://ghost.org/download/)
+- [Support](http://support.ghost.org/)
+- [Theme Docs](http://themes.ghost.org)
+- [Contributing Guide](https://github.com/TryGhost/Ghost/blob/master/CONTRIBUTING.md)
+- [Feature Requests](http://ideas.ghost.org/)
+- [Dev Blog](http://dev.ghost.org)
 
-To run the app, follow these steps.
+**NOTE: If you’re stuck, can’t get something working or need some help, please head on over and join our [Slack community](https://ghost.org/slack/) rather than opening an issue.**
 
-1. Ensure that [NodeJS](http://nodejs.org/) is installed. This provides the platform on which the build tooling runs.
-2. From the project folder, execute the following command:
 
-  ```shell
-  npm install
-  ```
-3. Ensure that [Gulp](http://gulpjs.com/) is installed. If you need to install it, use the following command:
+# Quick Start Install
 
-  ```shell
-  npm install -g gulp
-  ```
-4. Ensure that [jspm](http://jspm.io/) is installed. If you need to install it, use the following command:
+Make sure you've installed Node.js - We recommend the latest **Node v0.10.x** release.
 
-  ```shell
-  npm install -g jspm
-  ```
-  > **Note:** jspm queries GitHub to install semver packages, but GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm registry config github` and following the prompts.
-5. Install the client-side dependencies with jspm:
+Ghost is also compatible with **Node v0.12** and **io.js v1.2**, but please note that these versions are more likely to run into installation problems. May contain nuts. Please use the [forum](https://ghost.org/forum/installation/) for help.
 
-  ```shell
-  jspm install -y
-  ```
-  >**Note:** Windows users, if you experience an error of "unknown command unzip" you can solve this problem by doing `npm install -g unzip` and then re-running `jspm install`.
-6. To run the app, execute the following command:
+1. Download the [latest release](https://ghost.org/download/) of Ghost
+1. Unzip in the location you want to install
+1. Fire up a terminal
+1. `npm install --production`
+1. Start Ghost!
+    - Local environment: `npm start`
+    - On a server: `npm start --production`
+1. `http://localhost:2368/ghost` :tada:
 
-  ```shell
-  gulp watch
-  ```
-7. Browse to [http://localhost:9000](http://localhost:9000) to see the app. You can make changes in the code found under `src` and the browser should auto-refresh itself as you save files.
+More [install docs](http://support.ghost.org/installation/) here in case you got stuck.
 
-> Note: At present there is a bug in the HTMLImports polyfill which only occurs on IE. We have submitted a pull request to the team with the fix. In the mean time, if you want to test on IE, you can work around the issue by explicitly adding a script tag before you load system.js. The script tag should look something like this (be sure to confirm the version number):
+<a name="getting-started"></a>
+# Developer Install (from git)
 
-```html
-<script src="jspm_packages/github/webcomponents/webcomponentsjs@0.5.2/HTMLImports.js"></script>
+Install Node.js. 
+
+```bash
+# Node v0.10.x - full support
+# Node v0.12.x and io.js v1.2 - partial support
+#
+# Choose wisely
 ```
 
-## Running The Unit Tests
+Clone :ghost:
 
-To run the unit tests, first ensure that you have followed the steps above in order to install all dependencies and successfully build the library. Once you have done that, proceed with these additional steps:
-
-1. Ensure that the [Karma](http://karma-runner.github.io/) CLI is installed. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g karma-cli
-  ```
-2. Install Aurelia libs for test visibility:
-
-```shell
-jspm install aurelia-framework
-jspm install aurelia-http-client
-jspm install aurelia-router
+```bash
+git clone git://github.com/tryghost/ghost.git
+cd ghost
 ```
-3. You can now run the tests with this command:
 
-  ```shell
-  karma start
-  ```
+Install grunt. No prizes here.
 
-## Running The E2E Tests
-Integration tests are performed with [Protractor](http://angular.github.io/protractor/#/).
+```bash
+npm install -g grunt-cli
+```
 
-1. Place your E2E-Tests into the folder ```test/e2e/src```
-2. Install the necessary webdriver
+Install Ghost. If you're running locally, use [master](https://github.com/TryGhost/Ghost/tree/master). For production, use [stable](https://github.com/TryGhost/Ghost/tree/stable). :no_entry_sign::rocket::microscope:
 
-  ```shell
-  gulp webdriver_update
-  ```
+```bash
+npm install
+```
 
-3. Configure the path to the webdriver by opening the file ```protractor.conf.js``` and adjusting the ```seleniumServerJar``` property. Typically its only needed to adjust the version number.
+Build the things!
 
-4. Make sure your app runs and is accessible
+```bash
+grunt init
+```
 
-  ```shell
-  gulp watch
-  ```
+Minify that shit for production?
 
-5. In another console run the E2E-Tests
+```bash
+grunt prod
+```
 
-  ```shell
-  gulp e2e
-  ```
+Start your engines.
+
+```bash
+npm start
+
+## running production? Add --production
+```
+
+Congrats! You made it. BTW you can also just `npm install ghost` if you're into that sort of thing. NPM afficionados can also read up on using [Ghost as an NPM module](https://github.com/TryGhost/Ghost/wiki/Using-Ghost-as-an-npm-module).
+
+More general [install docs](http://support.ghost.org/installation/) here in case you got stuck.
+
+
+# Deploying Ghost
+
+![Ghost(Pro) + DigitalOcean](https://cloud.githubusercontent.com/assets/120485/8180331/d6674e32-1414-11e5-8ce4-2250e9994906.png)
+
+Save yourself time and headaches with our fully managed **[Ghost(Pro)](https://ghost.org/pricing/)** service. Deploy a new instance of Ghost in a couple of clicks running on [DigitalOcean](https://digitalocean.com)’s rock solid infrastructure, with a worldwide CDN thrown in at no extra charge.
+
+All revenue from **Ghost(Pro**) goes to the Ghost Foundation, the non-profit org which funds the maintenance and further development of Ghost.
+
+[Other options](http://support.ghost.org/deploying-ghost/) are also available if you prefer playing around with servers by yourself.
+
+
+# Staying Up to Date
+
+When a new version of Ghost comes out, you'll want to look over these [upgrade instructions](http://support.ghost.org/how-to-upgrade/) for what to do next.
+
+You can talk to other Ghost users on [our forums](https://ghost.org/forum) or chat with Ghost developers in our [public Slack team](https://ghost.org/slack/) (it's pretty awesome). We have a public meeting every Tuesday at 5:30pm London time.
+
+New releases are announced on the [dev blog](http://dev.ghost.org/tag/releases/). You can subscribe by email or follow [@TryGhost_Dev](https://twitter.com/tryghost_dev) on Twitter, if you prefer your updates bite-sized and facetious.
+
+:saxophone::turtle:
+
+
+# Copyright & License
+
+Copyright (c) 2013-2015 Ghost Foundation - Released under the [MIT license](LICENSE).
